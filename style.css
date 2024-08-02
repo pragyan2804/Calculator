@@ -1,4 +1,8 @@
+
 body {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     /* Linear gradient from top (light blue) to bottom (dark blue) */
     display: flex;
     justify-content: center; /* Center horizontally */
@@ -8,6 +12,14 @@ body {
     background: linear-gradient(to bottom, #0909c1, #87118d);
     height: 100vh; /* Make sure it covers the full viewport height */
     margin: 0;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 
