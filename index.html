@@ -9,30 +9,30 @@
     </head> 
     <body>
         <div class="input-container">
-            <input inputmode="numeric" id="myInput" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" class="numeric-input" placeholder="DRAG & DROP TO BEGIN">
+            <input inputmode="numeric" id="myInput" oninput="this.value = this.value.replace(/[^0-9.+-x/]/g, '').replace(/(\..*)\./g, '$1')" class="numeric-input" placeholder="DRAG & DROP TO BEGIN">
         </div>
         <div class="buttons1">
-            <button class="operands" id="operplus" onclick="alert('+')" draggable="true">+</button>
-            <button class="operands" id="opermin" onclick="alert('-')" draggable="true">-</button>
-            <button class="operands" id="opermul" onclick="alert('x')" draggable="true">x</button>
-            <button class="operands" id="operdiv" onclick="alert('/')" draggable="true">/</button>
+            <button class="operands" id="operplus" data-text="+" draggable="true">+</button>
+            <button class="operands" id="opermin" data-text="-" draggable="true">-</button>
+            <button class="operands" id="opermul" data-text="x" draggable="true">x</button>
+            <button class="operands" id="operdiv" data-text="/" draggable="true">/</button>
         </div>
         <div class="buttons2">
-            <button class="period" id="periodbutton" onclick="alert('.')" draggable="true">.</button>
-            <button class="AC" id="ACbutton" onclick="alert('AC')" draggable="true">AC</button>
-            <button class="equals" id="equbutton" onclick="alert('=')" draggable="true">=</button>
+            <button class="period" id="periodbutton" data-text="." draggable="true">.</button>
+            <button class="AC" id="ACbutton" draggable="true">AC</button>
+            <button class="equals" id="equbutton" draggable="true">=</button>
         </div>
         <div class="buttons3">
-            <button class="nums" id="button1" onclick="alert('1')" draggable="true">1</button>
-            <button class="nums" id="button2" onclick="alert('2')" draggable="true">2</button>
-            <button class="nums" id="button3" onclick="alert('3')" draggable="true">3</button>
-            <button class="nums" id="button4" onclick="alert('4')" draggable="true">4</button>
-            <button class="nums" id="button5" onclick="alert('5')" draggable="true">5</button>
-            <button class="nums" id="button6" onclick="alert('6')" draggable="true">6</button>
-            <button class="nums" id="button7" onclick="alert('7')" draggable="true">7</button>
-            <button class="nums" id="button8" onclick="alert('8')" draggable="true">8</button>
-            <button class="nums" id="button9" onclick="alert('9')" draggable="true">9</button>
-            <button class="nums" id="button0" onclick="alert('0')" draggable="true">0</button>
+            <button class="nums" id="button1" data-text="1" draggable="true">1</button>
+            <button class="nums" id="button2" data-text="2"draggable="true">2</button>
+            <button class="nums" id="button3" data-text="3" draggable="true">3</button>
+            <button class="nums" id="button4" data-text="4" draggable="true">4</button>
+            <button class="nums" id="button5" data-text="5" draggable="true">5</button>
+            <button class="nums" id="button6" data-text="6" draggable="true">6</button>
+            <button class="nums" id="button7" data-text="7" draggable="true">7</button>
+            <button class="nums" id="button8" data-text="8" draggable="true">8</button>
+            <button class="nums" id="button9" data-text="9" draggable="true">9</button>
+            <button class="nums" id="button0" data-text="0" draggable="true">0</button>
         </div>
     </body>
 </html>
