@@ -12,6 +12,7 @@ body {
     background: linear-gradient(to bottom, #0909c1, #87118d);
     height: 100vh; /* Make sure it covers the full viewport height */
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 @keyframes fadeInAnimation {
     0% {
@@ -22,6 +23,12 @@ body {
     }
 }
 
+.custom-font {
+    user-select: none;
+    -moz-user-select: none;
+    font-weight: 700; /* Apply bold weight */
+    font-size: 20px;
+}
 
 .input-container {
     display: flex;
@@ -81,6 +88,9 @@ body {
 
 .operands:hover {
     background-color: #0080ffca; /* New background color when hovered */
+}
+.operands:disabled{
+    background-color: #60606e;
 }
 
 
@@ -164,6 +174,10 @@ body {
 .period:hover {
     background-color: #0080ffca; /* New background color when hovered */
 }
+.period:disabled{
+    background-color: #60606e;
+}
+
 
 .AC {
     display: flex;
@@ -206,6 +220,10 @@ body {
 .equals:hover {
     background-color: #00ff88e3; /* New background color when hovered */
 }
+.equals:disabled{
+    background-color: #60606e;
+}
+
 
 .buttons3{
     display: flex;

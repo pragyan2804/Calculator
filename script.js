@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // CLEAR SCREEN
     function clrscn() {
-        inputBox.value = " ";
+        inputBox.value = "";
     }
 
     // OPERATION FUNCTION
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         inputBox.value = num1;
         num2 = "";
-        opButtonsOFF();
+        op = "";
     }
 
     opButtonsOFF();
@@ -89,11 +89,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // OPERATION BUTTONS
     opButtons.forEach(button => {
         button.addEventListener('click', function() {
+            // If there is already an operator selected and a second one is clicked,
+            // perform the previous operation before setting the new operator.
+            if (op !== "") {
+                operation();
+            }
             // Get the data-text attribute value from the clicked button
             op = button.getAttribute('data-text');
-            button.disabled = true;     
+            opButtonsOFF();    
             periodButtonON();
-            clrscn();
+            inputBox.value = num1 + " " + op + " ";
         });
     });
 
@@ -129,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // EQUALS BUTTON
     eqButton.forEach(button => {
         button.addEventListener('click', function() {
+            opButtonsON();
             operation();
         });
     });
