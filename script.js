@@ -8,22 +8,49 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all buttons with the class 'textButton'
     const opButtons = document.querySelectorAll('.operands');
     const periodButton = document.querySelectorAll('.period');
+    const ACbutton = document.querySelectorAll('.AC');
+    const eqButton = document.querySelectorAll('.equals');
     const numButtons = document.querySelectorAll('.nums');
     const inputBox = document.getElementById('myInput');
 
-    // Add a click event listener to each button
+    //OPERATION BUTTONS ON
+    function opButtonsON(){
+        opButtons.forEach(opButtons => {
+            opButtons.disabled = false;
+        });
+    }
+    //OPERATION BUTTONS OFF
+    function opButtonsOFF(){
+        opButtons.forEach(opButtons => {
+            opButtons.disabled = true;
+        });
+    };
+    //PERIOD BUTTON ON
+    function periodButtonON(){
+        periodButton.forEach(periodButton => {
+        periodButton.disabled = false;
+    });
+    }
+    //PERIOD BUTTON OFF
+    function periodButtonOFF(){
+        periodButton.forEach(periodButton => {
+        periodButton.disabled = true;
+    });
+    }
+
+    opButtonsOFF();
+    periodButtonOFF();
+    // NUMBER BUTTONS
     numButtons.forEach(button => {
         button.addEventListener('click', function() {
-            opButtons.forEach(opButtons => {
-                opButtons.disabled = false;
-            });
+            opButtonsON();
             // Get the data-text attribute value from the clicked button
             const newText = parseInt(button.getAttribute('data-text'));
             // Change the value of the input box to the text from the clicked button
             inputBox.value = inputBox.value + newText;
         });
     });
-    // Add a click event listener to each button
+    // OPERATION BUTTONS
     opButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Get the data-text attribute value from the clicked button
@@ -43,19 +70,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }     
             inputBox.value = inputBox.value + newText;
             button.disabled= true;     
-            periodButton.forEach(periodButton => {
-                periodButton.disabled = false;
-            });
+            periodButtonON();
         });
     });
-    // Add a click event listener to each button
+    // PERIOD BUTTON
     periodButton.forEach(button => {
         button.addEventListener('click', function() {
             // Get the data-text attribute value from the clicked button
             const newText = (button.getAttribute('data-text'));
             // Change the value of the input box to the text from the clicked button
             inputBox.value = inputBox.value + newText;
-            button.disabled= true;
+            periodButtonOFF();
+        });
+    });
+    // AC BUTTON
+    ACbutton.forEach(button => {
+        button.addEventListener('click', function() {
+            num1 = " "
+            num2 = " "
+            op = " "
+            newText=" "
+            inputBox.value = newText;
+        });
+    });
+    // EQUALS BUTTON
+    eqButtonutton.forEach(button => {
+        button.addEventListener('click', function() {
+            inputBox.value = num1;
         });
     });
 });
