@@ -68,7 +68,7 @@ body {
     align-items:  center;
     width: 120%;
     height: 80px; /* Adjust height as needed */
-    background-color: rgba(0, 128, 255, 0.4); /* Blue with 50% opacity */
+    background-color: #0080ff66; /* Blue with 50% opacity */
     border: none; /* Remove default border */
     border-radius: 15px; /* Rounded corners */
     padding: 0 50px; /* Add padding for better appearance */
@@ -77,6 +77,10 @@ body {
     font-size: 50px; /* Adjust font size as needed */
     color: #fff; /* White text color */
     cursor: move;
+}
+
+.operands:hover {
+    background-color: #0080ffca; /* New background color when hovered */
 }
 
 
@@ -157,13 +161,17 @@ body {
     cursor: move;
 }
 
+.period:hover {
+    background-color: #0080ffca; /* New background color when hovered */
+}
+
 .AC {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items:  center;
     width: 120%;
     height: 80px; /* Adjust height as needed */
-    background-color: rgba(0, 128, 255, 0.4); /* Blue with 50% opacity */
+    background-color: #ff0000a0; /* Blue with 50% opacity */
     border: none; /* Remove default border */
     border-radius: 15px; /* Rounded corners */
     padding: 0 50px; /* Add padding for better appearance */
@@ -174,13 +182,17 @@ body {
     cursor: move;
 }
 
+.AC:hover {
+    background-color: #ff0000f1; /* New background color when hovered */
+}
+
 .equals {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items:  center;
     width: 120%;
     height: 80px; /* Adjust height as needed */
-    background-color: rgba(0, 128, 255, 0.4); /* Blue with 50% opacity */
+    background-color: #00ff88a7; /* Blue with 50% opacity */
     border: none; /* Remove default border */
     border-radius: 15px; /* Rounded corners */
     padding: 0 50px; /* Add padding for better appearance */
@@ -189,6 +201,10 @@ body {
     font-size: 50px; /* Adjust font size as needed */
     color: #fff; /* White text color */
     cursor: move;
+}
+
+.equals:hover {
+    background-color: #00ff88e3; /* New background color when hovered */
 }
 
 .buttons3{
@@ -215,4 +231,8 @@ body {
     font-size: 50px; /* Adjust font size as needed */
     color: #fff; /* White text color */
     cursor: move;
+}
+
+.nums:hover {
+    background-color: #0080ffca; /* New background color when hovered */
 }
