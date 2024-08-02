@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // CLEAR SCREEN
     function clrscn() {
-        inputBox.value = "";
+        inputBox.value = " ";
     }
 
     // OPERATION FUNCTION
