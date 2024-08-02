@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     numButtons.forEach(button => {
         button.addEventListener('click', function() {
             opButtonsON();
+            periodButtonON();
             // Get the data-text attribute value from the clicked button
             const newText = button.getAttribute('data-text');
             // If an operation has already been chosen, we're entering num2
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get the data-text attribute value from the clicked button
             op = button.getAttribute('data-text');
             opButtonsOFF();    
-            periodButtonON();
+            periodButtonOFF();
             inputBox.value = num1 + " " + op + " ";
         });
     });

@@ -83,7 +83,7 @@ body {
     text-align: center; /* Center text inside the input field */
     font-size: 50px; /* Adjust font size as needed */
     color: #fff; /* White text color */
-    cursor: move;
+    cursor: grab;
 }
 
 .operands:hover {
@@ -91,6 +91,7 @@ body {
 }
 .operands:disabled{
     background-color: #60606e;
+    cursor: not-allowed;
 }
 
 
@@ -168,7 +169,7 @@ body {
     text-align: center; /* Center text inside the input field */
     font-size: 50px; /* Adjust font size as needed */
     color: #fff; /* White text color */
-    cursor: move;
+    cursor: grab;
 }
 
 .period:hover {
@@ -176,6 +177,7 @@ body {
 }
 .period:disabled{
     background-color: #60606e;
+    cursor: not-allowed;
 }
 
 
@@ -193,7 +195,7 @@ body {
     text-align: center; /* Center text inside the input field */
     font-size: 50px; /* Adjust font size as needed */
     color: #fff; /* White text color */
-    cursor: move;
+    cursor: grab;
 }
 
 .AC:hover {
@@ -214,7 +216,7 @@ body {
     text-align: center; /* Center text inside the input field */
     font-size: 50px; /* Adjust font size as needed */
     color: #fff; /* White text color */
-    cursor: move;
+    cursor: grab;
 }
 
 .equals:hover {
@@ -248,7 +250,7 @@ body {
     text-align: center; /* Center text inside the input field */
     font-size: 50px; /* Adjust font size as needed */
     color: #fff; /* White text color */
-    cursor: move;
+    cursor: grab;
 }
 
 .nums:hover {
