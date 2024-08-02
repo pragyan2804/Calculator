@@ -7,18 +7,22 @@ body {
 
 
 .input-container {
-    width: 300px; /* Adjust width as needed */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    width: 1000px; /* Adjust width as needed */
+    height: 400px;
 }
 
 
+
 .numeric-input {
-    width: 100%;
-    height: 50px; /* Adjust height as needed */
+    width: 110%;
+    height: 150px; /* Adjust height as needed */
     background-color: rgba(0, 128, 255, 0.5); /* Blue with 50% opacity */
     border: none; /* Remove default border */
     border-radius: 15px; /* Rounded corners */
     padding: 0 15px; /* Add padding for better appearance */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
     text-align: center; /* Center text inside the input field */
     font-size: 16px; /* Adjust font size as needed */
     color: #fff; /* White text color */

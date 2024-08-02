@@ -8,7 +8,7 @@
     </head> 
     <body>
         <div class="input-container">
-            <input type="number" class="numeric-input" placeholder="Enter number">
+            <input inputmode="numeric" oninput="this.value = this.value.replace(/\D+/g, '')" class="numeric-input" placeholder="Enter number">
         </div>
     </body>
 </html>
