@@ -1,0 +1,28 @@
+body {
+    /* Linear gradient from top (light blue) to bottom (dark blue) */
+    background: linear-gradient(to bottom, #0909c1, #87118d);
+    height: 100vh; /* Make sure it covers the full viewport height */
+    margin: 0;
+}
+
+.input-container {
+    width: 300px; /* Adjust width as needed */
+}
+
+.numeric-input {
+    width: 100%;
+    height: 50px; /* Adjust height as needed */
+    background-color: rgba(0, 128, 255, 0.5); /* Blue with 50% opacity */
+    border: none; /* Remove default border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 0 15px; /* Add padding for better appearance */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
+    text-align: center; /* Center text inside the input field */
+    font-size: 16px; /* Adjust font size as needed */
+    color: #fff; /* White text color */
+}
+
+
+.numeric-input::placeholder {
+    color: #fff; /* White placeholder text color */
+}
