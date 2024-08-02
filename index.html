@@ -8,13 +8,17 @@
     </head> 
     <body>
         <div class="input-container">
-            <input inputmode="numeric" oninput="this.value = this.value.replace(/\D+/g, '')" class="numeric-input" placeholder="Enter number">
+            <input inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" class="numeric-input" placeholder="Enter number">
         </div>
-        <div class="buttons">
+        <div class="buttons1">
             <button class="plus" onclick="alert('+')">+</button>
             <button class="minus" onclick="alert('-')">-</button>
             <button class="multiply" onclick="alert('x')">x</button>
             <button class="divide" onclick="alert('/')">/</button>
+        </div>
+        <div class="buttons2">
+            <button class="AC" onclick="alert('AC')">AC</button>
+            <button class="equals" onclick="alert('=')">=</button>
         </div>
     </body>
 </html>
