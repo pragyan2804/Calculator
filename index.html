@@ -5,20 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calculator</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
     </head> 
     <body>
         <div class="input-container">
-            <input inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" class="numeric-input" placeholder="Enter number">
+            <input inputmode="numeric" id="myInput" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" class="numeric-input" placeholder="Enter number">
         </div>
         <div class="buttons1">
-            <button class="plus" onclick="alert('+')">+</button>
-            <button class="minus" onclick="alert('-')">-</button>
-            <button class="multiply" onclick="alert('x')">x</button>
-            <button class="divide" onclick="alert('/')">/</button>
+            <button class="operands" onclick="alert('+')" draggable="true">+</button>
+            <button class="operands" onclick="alert('-')" draggable="true">-</button>
+            <button class="operands" onclick="alert('x')" draggable="true">x</button>
+            <button class="operands" onclick="alert('/')" draggable="true">/</button>
         </div>
         <div class="buttons2">
-            <button class="AC" onclick="alert('AC')">AC</button>
-            <button class="equals" onclick="alert('=')">=</button>
+            <button class="AC" onclick="alert('AC')" draggable="true">AC</button>
+            <button class="equals" onclick="alert('=')" draggable="true">=</button>
+        </div>
+        <div class="buttons3">
+            <button class="nums" onclick="alert('1')" draggable="true">1</button>
+            <button class="nums" onclick="alert('2')" draggable="true">2</button>
+            <button class="nums" onclick="alert('3')" draggable="true">3</button>
+            <button class="nums" onclick="alert('4')" draggable="true">4</button>
+            <button class="nums" onclick="alert('5')" draggable="true">5</button>
+            <button class="nums" onclick="alert('6')" draggable="true">6</button>
+            <button class="nums" onclick="alert('7')" draggable="true">7</button>
+            <button class="nums" onclick="alert('8')" draggable="true">8</button>
+            <button class="nums" onclick="alert('9')" draggable="true">9</button>
+            <button class="nums" onclick="alert('0')" draggable="true">0</button>
         </div>
     </body>
 </html>
