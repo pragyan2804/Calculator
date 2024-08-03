@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             op = droppedData;
             inputBox.value = num1 + " " + op + " ";
+            eqButtonOFF();
             opButtonsOFF();    
             periodButtonON();
         } 
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else {
                 num2 += droppedData;
                 inputBox.value = num2;
+                eqButtonON();
                 opButtonsON();
                 periodButtonOFF();
             }
@@ -64,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 num2 += droppedData;
                 inputBox.value = num2;
                 opButtonsON();
+                eqButtonON();
             }
         }
     }
@@ -75,6 +78,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     inputBox.addEventListener('dragover', allowDrop);
     inputBox.addEventListener('drop', drop);
+
+    // EQUALS BUTTON ON
+    function eqButtonON() {
+        eqButton.forEach(button => {
+            button.disabled = false;
+        });
+    }
+
+    // EQUALS BUTTON OFF
+    function eqButtonOFF() {
+        eqButton.forEach(button => {
+            button.disabled = true;
+        });
+    }
 
     // OPERATION BUTTONS ON
     function opButtonsON() {
@@ -143,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     opButtonsOFF();
+    eqButtonOFF();
 
     ACbutton.forEach(button => {
         button.addEventListener('click', function() {
@@ -157,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     eqButton.forEach(button => {
         button.addEventListener('click', function() {
+            eqButtonOFF();
             opButtonsON();
             operation();
         });
