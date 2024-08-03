@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputBox = document.getElementById('myInput');
 
     // Enable dragging on all buttons except the AC button
-    [...opButtons, ...periodButton, ...eqButton, ...numButtons].forEach(button => {
+    [...opButtons, ...periodButton, ...numButtons].forEach(button => {
         button.draggable = true;
     });
 
@@ -123,45 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     opButtonsOFF();
 
-    numButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            opButtonsON();
-            const newText = button.getAttribute('data-text');
-            if (op === "") {
-                num1 += newText;
-                inputBox.value = num1;
-            } else {
-                num2 += newText;
-                inputBox.value = num2;
-            }
-        });
-    });
-
-    opButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (op !== "") {
-                operation();
-            }
-            op = button.getAttribute('data-text');
-            opButtonsOFF();    
-            periodButtonON();
-            inputBox.value = num1 + " " + op + " ";
-        });
-    });
-
-    periodButton.forEach(button => {
-        button.addEventListener('click', function() {
-            const newText = button.getAttribute('data-text');
-            if (op === "") {
-                num1 += newText;
-                inputBox.value = num1;
-            } else {
-                num2 += newText;
-                inputBox.value = num2;
-            }
-            periodButtonOFF();
-        });
-    });
 
     ACbutton.forEach(button => {
         button.addEventListener('click', function() {
