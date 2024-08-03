@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             periodButtonON();
         }
     }
+    
 
     [...opButtons, ...periodButton, ...eqButton, ...numButtons].forEach(button => {
         button.addEventListener('dragstart', dragStart);
