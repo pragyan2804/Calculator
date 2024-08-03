@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function dragStart(event) {
         event.dataTransfer.setData('text', event.target.getAttribute('data-text'));
     }
+
     //DROP TARGET
     function allowDrop(event) {
         event.preventDefault();
@@ -84,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
     //OPERATION BUTTONS OFF
     function opButtonsOFF() {
         opButtons.forEach(button => {
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
     //PERIOD BUTTON ON
     function periodButtonON() {
         periodButton.forEach(button => {
@@ -102,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
     //PERIOD BUTTON OFF
     function periodButtonOFF() {
         periodButton.forEach(button => {
@@ -111,10 +115,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
     //CLEAR SCREEN FUNCTION
     function clrscn() {
         inputBox.value = "";
     }
+
     //OPERATION SWITCH CASES
     function operation() {
         switch (op) {
@@ -137,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     opButtonsOFF();
-
 
     ACbutton.forEach(button => {
         button.addEventListener('click', function() {
