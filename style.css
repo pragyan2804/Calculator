@@ -210,3 +210,7 @@ body {
 .nums:hover {
     background-color: #0080ffca; /* New background color when hovered */
 }
+
+.nums:disabled{
+    background-color: #60606e;
+}

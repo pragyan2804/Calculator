@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const eqButton = document.querySelectorAll('.equals');
     const numButtons = document.querySelectorAll('.nums');
     const inputBox = document.getElementById('myInput');
+    const minButton = document.querySelectorAll('#opermin');
 
     // Enable dragging on all buttons except the AC button
     [...opButtons, ...periodButton, ...numButtons].forEach(button => {
@@ -78,6 +79,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     inputBox.addEventListener('dragover', allowDrop);
     inputBox.addEventListener('drop', drop);
+
+    // MINUS BUTTON ON
+    function minButtonON() {
+        minButton.forEach(button => {
+            button.disabled = false;
+            button.draggable = true;
+        });
+    }
+
+    // MINUS BUTTON OFF
+    function minButtonOFF() {
+        minButton.forEach(button => {
+            button.disabled = true;
+            button.draggable = false;
+        });
+    }
 
     // EQUALS BUTTON ON
     function eqButtonON() {
@@ -161,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     opButtonsOFF();
     eqButtonOFF();
+    minButtonON();
 
     ACbutton.forEach(button => {
         button.addEventListener('click', function() {
