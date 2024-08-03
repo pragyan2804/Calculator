@@ -38,7 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
             inputBox.value = num1 + " " + op + " ";
             opButtonsOFF();    
             periodButtonON();
-        } else {
+        } 
+        else if (['.'].includes(droppedData)) {
+            num1 += droppedData;
+            inputBox.value = num1;
+            inputBox.value = num1 + " " + op + " ";   
+            periodButtonOFF();
+        }
+        else {
             // If it's a number or period, append to num1 or num2
             if (op === "") {
                 num1 += droppedData;
