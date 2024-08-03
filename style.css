@@ -31,6 +31,9 @@ body {
 }
 
 .input-container {
+    user-select: none;
+    -moz-user-select: none;
+    cursor: grab;
     display: flex;
     justify-content: center; /* Center horizontally */
     width: 1000px; /* Adjust width as needed */
@@ -40,6 +43,9 @@ body {
 
 
 .numeric-input {
+    user-select: none;
+    -moz-user-select: none;
+    cursor: grab;
     width: 110%;
     height: 150px; /* Adjust height as needed */
     background-color: rgba(0, 128, 255, 0.5); /* Blue with 50% opacity */

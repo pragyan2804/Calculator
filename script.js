@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function dragStart(event) {
         event.dataTransfer.setData('text', event.target.getAttribute('data-text'));
     }
-
+    //DROP TARGET
     function allowDrop(event) {
         event.preventDefault();
     }
@@ -28,23 +28,30 @@ document.addEventListener('DOMContentLoaded', function() {
     function drop(event) {
         event.preventDefault();
         const droppedData = event.dataTransfer.getData('text');
-        
-        if (op === "") {
-            num1 += droppedData;
-            inputBox.value = num1;
-        } else {
-            num2 += droppedData;
-            inputBox.value = num2;
-        }
-
-        if (event.target.classList.contains('operands')) {
+    
+        // Check if the dropped data is an operator
+        if (['+', '-', 'x', '/'].includes(droppedData)) {
+            if (op !== "") {
+                operation();
+            }
             op = droppedData;
             inputBox.value = num1 + " " + op + " ";
             opButtonsOFF();    
             periodButtonON();
+        } else {
+            // If it's a number or period, append to num1 or num2
+            if (op === "") {
+                num1 += droppedData;
+                inputBox.value = num1;
+                opButtonsON();
+            } else {
+                num2 += droppedData;
+                inputBox.value = num2;
+                opButtonsON();
+            }
         }
     }
-    
+
 
     [...opButtons, ...periodButton, ...eqButton, ...numButtons].forEach(button => {
         button.addEventListener('dragstart', dragStart);
@@ -57,31 +64,43 @@ document.addEventListener('DOMContentLoaded', function() {
     function opButtonsON() {
         opButtons.forEach(button => {
             button.disabled = false;
+            opButtons.forEach(button => {
+                button.draggable = true;
+            });
         });
     }
-
+    //OPERATION BUTTONS OFF
     function opButtonsOFF() {
         opButtons.forEach(button => {
             button.disabled = true;
+            opButtons.forEach(button => {
+                button.draggable = false;
+            });
         });
     }
-
+    //PERIOD BUTTON ON
     function periodButtonON() {
         periodButton.forEach(button => {
             button.disabled = false;
+            periodButton.forEach(button => {
+                button.draggable = true;
+            });
         });
     }
-
+    //PERIOD BUTTON OFF
     function periodButtonOFF() {
         periodButton.forEach(button => {
             button.disabled = true;
+            periodButton.forEach(button => {
+                button.draggable = false;
+            });
         });
     }
-
+    //CLEAR SCREEN FUNCTION
     function clrscn() {
         inputBox.value = "";
     }
-
+    //OPERATION SWITCH CASES
     function operation() {
         switch (op) {
             case "+":
