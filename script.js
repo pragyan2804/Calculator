@@ -4,13 +4,53 @@ let op = "";
 
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all buttons with the class 'textButton'
     const opButtons = document.querySelectorAll('.operands');
     const periodButton = document.querySelectorAll('.period');
     const ACbutton = document.querySelectorAll('.AC');
     const eqButton = document.querySelectorAll('.equals');
     const numButtons = document.querySelectorAll('.nums');
     const inputBox = document.getElementById('myInput');
+
+    // Enable dragging on all buttons except the AC button
+    [...opButtons, ...periodButton, ...eqButton, ...numButtons].forEach(button => {
+        button.draggable = true;
+    });
+
+    // DRAG AND DROP FUNCTIONALITY
+    function dragStart(event) {
+        event.dataTransfer.setData('text', event.target.getAttribute('data-text'));
+    }
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        const droppedData = event.dataTransfer.getData('text');
+        
+        if (op === "") {
+            num1 += droppedData;
+            inputBox.value = num1;
+        } else {
+            num2 += droppedData;
+            inputBox.value = num2;
+        }
+
+        if (event.target.classList.contains('operands')) {
+            op = droppedData;
+            inputBox.value = num1 + " " + op + " ";
+            opButtonsOFF();    
+            periodButtonON();
+        }
+    }
+
+    [...opButtons, ...periodButton, ...eqButton, ...numButtons].forEach(button => {
+        button.addEventListener('dragstart', dragStart);
+    });
+
+    inputBox.addEventListener('dragover', allowDrop);
+    inputBox.addEventListener('drop', drop);
 
     // OPERATION BUTTONS ON
     function opButtonsON() {
@@ -19,33 +59,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // OPERATION BUTTONS OFF
     function opButtonsOFF() {
         opButtons.forEach(button => {
             button.disabled = true;
         });
     }
 
-    // PERIOD BUTTON ON
     function periodButtonON() {
         periodButton.forEach(button => {
             button.disabled = false;
         });
     }
 
-    // PERIOD BUTTON OFF
     function periodButtonOFF() {
         periodButton.forEach(button => {
             button.disabled = true;
         });
     }
 
-    // CLEAR SCREEN
     function clrscn() {
         inputBox.value = "";
     }
 
-    // OPERATION FUNCTION
     function operation() {
         switch (op) {
             case "+":
@@ -68,13 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     opButtonsOFF();
 
-    // NUMBER BUTTONS
     numButtons.forEach(button => {
         button.addEventListener('click', function() {
             opButtonsON();
-            // Get the data-text attribute value from the clicked button
             const newText = button.getAttribute('data-text');
-            // If an operation has already been chosen, we're entering num2
             if (op === "") {
                 num1 += newText;
                 inputBox.value = num1;
@@ -85,15 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // OPERATION BUTTONS
     opButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // If there is already an operator selected and a second one is clicked,
-            // perform the previous operation before setting the new operator.
             if (op !== "") {
                 operation();
             }
-            // Get the data-text attribute value from the clicked button
             op = button.getAttribute('data-text');
             opButtonsOFF();    
             periodButtonON();
@@ -101,12 +129,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // PERIOD BUTTON
     periodButton.forEach(button => {
         button.addEventListener('click', function() {
-            // Get the data-text attribute value from the clicked button
             const newText = button.getAttribute('data-text');
-            // Append the period to the current number
             if (op === "") {
                 num1 += newText;
                 inputBox.value = num1;
@@ -118,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // AC BUTTON
     ACbutton.forEach(button => {
         button.addEventListener('click', function() {
             num1 = "";
@@ -130,7 +154,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // EQUALS BUTTON
     eqButton.forEach(button => {
         button.addEventListener('click', function() {
             opButtonsON();
