@@ -61,9 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 inputBox.value = num1 + " " + op + " " + "-";
                 minButtonOFF();
             }
-            if (isNegative){
-                periodButtonOFF();
-            }
         }
         // Check if the dropped data is a period
         else if (['.'].includes(droppedData)) {
@@ -74,7 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
             } 
             else {
                 num2 += droppedData;
+                if (isNegative){
+                    inputBox.value = num1 + " " + op + " " + "-" + " " + num2;
+                }
+                else{
                 inputBox.value = num1 + " " + op + " " + num2;
+                }
                 eqButtonON();
                 opButtonsON();
                 periodButtonOFF();
