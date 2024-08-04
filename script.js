@@ -34,6 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // Check if the dropped data is an operator
         if (['+', '-', 'x', '/'].includes(droppedData)) {
+            eqButtonOFF();
+            opButtonsOFF();    
+            periodButtonON();
+            minButtonON();
             if (op !== "" && isNegative) {
                 operation();
                 inputBox.value = num1 + " " + op + " " + num2;
@@ -53,11 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 op = droppedData;
                 inputBox.value = num1 + " " + op + " ";
             }
-            eqButtonOFF();
-            opButtonsOFF();    
-            periodButtonON();
-            minButtonON();
-        } 
+            if (op !== "" && droppedData==="-" && isNegative){
+                inputBox.value = num1 + " " + op + " " + "-";
+                minButtonOFF();
+            }
+        }
         // Check if the dropped data is a period
         else if (['.'].includes(droppedData)) {
             if (op === "") {   
