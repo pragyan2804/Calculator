@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 num1 += droppedData;
                 inputBox.value = num1 + " " + op + " ";   
                 periodButtonOFF();
+                eqButtonOFF();
             } 
             else {
                 num2 += droppedData;
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 else{
                 inputBox.value = num1 + " " + op + " " + num2;
                 }
-                eqButtonON();
+                eqButtonOFF();
                 opButtonsON();
                 periodButtonOFF();
             }
