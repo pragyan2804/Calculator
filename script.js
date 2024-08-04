@@ -1,6 +1,7 @@
 let num1 = "";
 let num2 = "";
 let op = "";
+let isNegative = false;
 
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -33,45 +34,78 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // Check if the dropped data is an operator
         if (['+', '-', 'x', '/'].includes(droppedData)) {
-            if (op !== "") {
+            if (op !== "" && isNegative) {
                 operation();
+                inputBox.value = num1 + " " + op + " " + num2;
             }
-            op = droppedData;
-            inputBox.value = num1 + " " + op + " ";
+            if (op === "" && droppedData==="-" && num1===""){
+                isNegative=true;
+                inputBox.value = num1 + " " + "-" + " ";
+                minButtonOFF();
+            }
+            else if (op !== "" && droppedData==="-" && num2===""){
+                isNegative=true;
+                inputBox.value = num1 + " " + op + " " + "-";
+                minButtonOFF();
+            }
+            else{
+                op = droppedData;
+                inputBox.value = num1 + " " + op + " ";
+            }
             eqButtonOFF();
             opButtonsOFF();    
             periodButtonON();
+            minButtonON();
         } 
         else if (['.'].includes(droppedData)) {
             if (op === "") {   
                 num1 += droppedData;
-                inputBox.value = num1;
                 inputBox.value = num1 + " " + op + " ";   
                 periodButtonOFF();
             } 
             else {
                 num2 += droppedData;
-                inputBox.value = num2;
+                inputBox.value = num1 + " " + op + " " + num2;
                 eqButtonON();
                 opButtonsON();
                 periodButtonOFF();
             }
         }
+        else if (droppedData === "-" && num1 === "" && !isNegative) {
+            // Handle negative number input
+            num1 = "-";
+            inputBox.value = num1;
+            isNegative = true;
+        }
+        else if (droppedData === "-" && num2 === "" && op !== "" && !isNegative) {
+            // Handle negative number for num2
+            num2 = "-";
+            inputBox.value = num1 + " " + op + " " + num2;
+            isNegative = true;
+        }
         else {
             // If it's a number or period, append to num1 or num2
             if (op === "") {
                 num1 += droppedData;
-                inputBox.value = num1;
+                if (isNegative){
+                    num1=num1*(-1)
+                    !isNegative;
+                }
+                inputBox.value = num1 + " " + op + " " + num2;
                 opButtonsON();
             } else {
                 num2 += droppedData;
-                inputBox.value = num2;
+                if (isNegative){
+                    num2=num2*(-1)
+                    !isNegative;
+                }
+                inputBox.value = num1 + " " + op + " " + num2;
                 opButtonsON();
                 eqButtonON();
             }
+            isNegative = false; // Reset negative flag when number is entered
         }
     }
-
 
     [...opButtons, ...periodButton, ...eqButton, ...numButtons].forEach(button => {
         button.addEventListener('dragstart', dragStart);
@@ -114,9 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function opButtonsON() {
         opButtons.forEach(button => {
             button.disabled = false;
-            opButtons.forEach(button => {
-                button.draggable = true;
-            });
+            button.draggable = true;
         });
     }
 
@@ -124,9 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function opButtonsOFF() {
         opButtons.forEach(button => {
             button.disabled = true;
-            opButtons.forEach(button => {
-                button.draggable = false;
-            });
+            button.draggable = false;
         });
     }
 
@@ -134,9 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function periodButtonON() {
         periodButton.forEach(button => {
             button.disabled = false;
-            periodButton.forEach(button => {
-                button.draggable = true;
-            });
+            button.draggable = true;
         });
     }
 
@@ -144,9 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function periodButtonOFF() {
         periodButton.forEach(button => {
             button.disabled = true;
-            periodButton.forEach(button => {
-                button.draggable = false;
-            });
+            button.draggable = false;
         });
     }
 
@@ -170,9 +196,9 @@ document.addEventListener('DOMContentLoaded', function() {
             case "/":
                 num1 = parseFloat(num1) / parseFloat(num2);
                 break;
-        }
-        inputBox.value = num1;
+            }
         num2 = "";
+        inputBox.value = num1;
         op = "";
     }
 
@@ -187,7 +213,8 @@ document.addEventListener('DOMContentLoaded', function() {
             op = "";
             clrscn();
             opButtonsOFF();
-            periodButtonOFF();
+            minButtonON();
+            !isNegative;
         });
     });
 
