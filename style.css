@@ -1,16 +1,16 @@
 
+/* BODY */
 body {
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    /* Linear gradient from top (light blue) to bottom (dark blue) */
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items:  center;
     flex-direction: column;
     gap: 20px;
     background: linear-gradient(to bottom, #0909c1, #87118d);
-    height: 100vh; /* Make sure it covers the full viewport height */
+    height: 100vh;
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
@@ -23,78 +23,76 @@ body {
     }
 }
 
+/* CUSTOM FONT */
 .custom-font {
     user-select: none;
     -moz-user-select: none;
-    font-weight: 700; /* Apply bold weight */
+    font-weight: 700;
     font-size: 20px;
 }
 
+/*INPUT FIELD*/
 .input-container {
     user-select: none;
     -moz-user-select: none;
     cursor: grab;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    width: 1000px; /* Adjust width as needed */
+    justify-content: center;
+    width: 1000px;
     height: 200px;
 }
-
-
 
 .numeric-input {
     user-select: none;
     -moz-user-select: none;
     cursor: grab;
     width: 110%;
-    height: 150px; /* Adjust height as needed */
-    background-color: rgba(0, 128, 255, 0.5); /* Blue with 50% opacity */
-    border: none; /* Remove default border */
-    border-radius: 15px; /* Rounded corners */
-    padding: 0 15px; /* Add padding for better appearance */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
-    text-align: center; /* Center text inside the input field */
-    font-size: 50px; /* Adjust font size as needed */
-    color: #fff; /* White text color */
+    height: 150px;
+    background-color: rgba(0, 128, 255, 0.5); 
+    border: none;
+    border-radius: 15px;
+    padding: 0 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
 }
-
 
 .numeric-input::placeholder {
-    color: #fff; /* White placeholder text color */
+    color: #fff;
 }
 
-
-
+/*OPERAND BUTTONS*/
 .buttons1{
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items:  center;
     padding: 50 15px;
     gap: 20px;
 }
 
-
 .operands {
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items:  center;
     width: 120%;
-    height: 80px; /* Adjust height as needed */
-    background-color: #0080ff66; /* Blue with 50% opacity */
-    border: none; /* Remove default border */
-    border-radius: 15px; /* Rounded corners */
-    padding: 0 50px; /* Add padding for better appearance */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
-    text-align: center; /* Center text inside the input field */
-    font-size: 50px; /* Adjust font size as needed */
-    color: #fff; /* White text color */
+    height: 80px;
+    background-color: #0080ff66;
+    border: none;
+    border-radius: 15px;
+    padding: 0 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
     cursor: grab;
 }
 
 .operands:hover {
-    background-color: #0080ffca; /* New background color when hovered */
+    background-color: #0080ffca;
 }
+
 .operands:disabled{
     background-color: #60606e;
     cursor: not-allowed;
@@ -104,88 +102,89 @@ body {
 .buttons2{
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items:  center;
     padding: 50 15px;
     gap: 20px;
 }
 
+/* FUNCTION BUTTONS */
 .period {
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center; 
     align-items:  center;
     width: 120%;
-    height: 80px; /* Adjust height as needed */
-    background-color: rgba(0, 128, 255, 0.4); /* Blue with 50% opacity */
-    border: none; /* Remove default border */
-    border-radius: 15px; /* Rounded corners */
-    padding: 0 50px; /* Add padding for better appearance */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
-    text-align: center; /* Center text inside the input field */
-    font-size: 50px; /* Adjust font size as needed */
-    color: #fff; /* White text color */
+    height: 80px; 
+    background-color: rgba(0, 128, 255, 0.4); 
+    border: none;
+    border-radius: 15px;
+    padding: 0 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
     cursor: grab;
 }
 
 .period:hover {
-    background-color: #0080ffca; /* New background color when hovered */
+    background-color: #0080ffca; 
 }
 .period:disabled{
     background-color: #60606e;
     cursor: not-allowed;
 }
 
-
 .AC {
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items:  center;
     width: 120%;
-    height: 80px; /* Adjust height as needed */
-    background-color: #ff0000a0; /* Blue with 50% opacity */
-    border: none; /* Remove default border */
-    border-radius: 15px; /* Rounded corners */
-    padding: 0 50px; /* Add padding for better appearance */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
-    text-align: center; /* Center text inside the input field */
-    font-size: 50px; /* Adjust font size as needed */
-    color: #fff; /* White text color */
+    height: 80px;
+    background-color: #ff0000a0;
+    border: none;
+    border-radius: 15px;
+    padding: 0 50px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
     cursor: grab;
 }
 
 .AC:hover {
-    background-color: #ff0000f1; /* New background color when hovered */
+    background-color: #ff0000f1;
 }
 
 .equals {
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items:  center;
     width: 120%;
-    height: 80px; /* Adjust height as needed */
-    background-color: #00ff88a7; /* Blue with 50% opacity */
-    border: none; /* Remove default border */
-    border-radius: 15px; /* Rounded corners */
-    padding: 0 50px; /* Add padding for better appearance */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
-    text-align: center; /* Center text inside the input field */
-    font-size: 50px; /* Adjust font size as needed */
-    color: #fff; /* White text color */
+    height: 80px;
+    background-color: #00ff88a7;
+    border: none;
+    border-radius: 15px;
+    padding: 0 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
     cursor: grab;
 }
 
 .equals:hover {
-    background-color: #00ff88e3; /* New background color when hovered */
+    background-color: #00ff88e3;
 }
+
 .equals:disabled{
     background-color: #60606e;
 }
 
-
+/*NUMBER BUTTONS*/
 .buttons3{
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items:  center;
     padding: 50 15px;
     gap: 20px;
@@ -193,22 +192,22 @@ body {
 
 .nums {
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
     align-items:  center;
     width: 120%;
-    height: 80px; /* Adjust height as needed */
-    background-color: rgba(0, 128, 255, 0.4); /* Blue with 50% opacity */
-    border: none; /* Remove default border */
-    border-radius: 15px; /* R.ounded corners */
-    padding: 0 50px; /* Add padding for better appearance */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Optional: Shadow for better visibility */
-    text-align: center; /* Center text inside the input field */
-    font-size: 50px; /* Adjust font size as needed */
-    color: #fff; /* White text color */
+    height: 80px;
+    background-color: rgba(0, 128, 255, 0.4);
+    border: none;
+    border-radius: 15px;
+    padding: 0 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
     cursor: grab;
 }
 .nums:hover {
-    background-color: #0080ffca; /* New background color when hovered */
+    background-color: #0080ffca;
 }
 
 .nums:disabled{

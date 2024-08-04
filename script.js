@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputBox = document.getElementById('myInput');
     const minButton = document.querySelectorAll('#opermin');
 
-    // Enable dragging on all buttons except the AC button
+    // Enable dragging on all buttons except AC & equals buttons
     [...opButtons, ...periodButton, ...numButtons].forEach(button => {
         button.draggable = true;
     });
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             periodButtonON();
             minButtonON();
         } 
+        // Check if the dropped data is a period
         else if (['.'].includes(droppedData)) {
             if (op === "") {   
                 num1 += droppedData;
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             isNegative = true;
         }
         else {
-            // If it's a number or period, append to num1 or num2
+            // If it's a number or period, append to num1 or num2 accordingly
             if (op === "") {
                 num1 += droppedData;
                 if (isNegative){
@@ -202,10 +203,12 @@ document.addEventListener('DOMContentLoaded', function() {
         op = "";
     }
 
+    // Initial states of a few buttons
     opButtonsOFF();
     eqButtonOFF();
     minButtonON();
 
+    // AC button click function
     ACbutton.forEach(button => {
         button.addEventListener('click', function() {
             num1 = "";
@@ -218,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Equals button click function
     eqButton.forEach(button => {
         button.addEventListener('click', function() {
             eqButtonOFF();
