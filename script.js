@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 minButtonOFF();
             }
             else{
+                operation();
                 op = droppedData;
                 inputBox.value = num1 + " " + op + " ";
             }
