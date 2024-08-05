@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
             opButtonsOFF();
             minButtonON();
             !isNegative;
+            periodButtonON();
         });
     });
 
